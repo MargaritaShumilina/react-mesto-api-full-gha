@@ -1,0 +1,25 @@
+.photo-places {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 calc((100% - 282px)/2) 46px calc((100% - 282px)/2);
+}
+
+@media screen and (min-width: 768px) {
+    .photo-places  {
+        display: grid;
+        grid-template-columns: repeat(2, fit-content(282px));
+        margin: 0 calc((100% - 584px)/2) 46px calc((100% - 584px)/2);
+        gap: 20px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .photo-places  {
+        display: grid;
+        grid-template-columns: repeat(3, fit-content(282px));
+        margin: 0 calc((100% - 880px)/2) 66px calc((100% - 880px)/2);
+        gap: 19px 17px;
+    }
+}

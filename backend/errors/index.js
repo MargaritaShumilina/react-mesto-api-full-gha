@@ -1,0 +1,15 @@
+const PAGE_NOT_FOUND = require('./PAGE_NOT_FOUND');
+const BAD_REQUEST = require('./BAD_REQUEST');
+const INTERNAL_SERVER_ERROR = require('./INTERNAL_SERVER_ERROR');
+const UNAUTHORIZED = require('./UNAUTHORIZED');
+const FORBIDDEN = require('./FORBIDDEN');
+const CONFLICT = require('./CONFLICT');
+
+module.exports = {
+  PAGE_NOT_FOUND,
+  BAD_REQUEST,
+  INTERNAL_SERVER_ERROR,
+  UNAUTHORIZED,
+  FORBIDDEN,
+  CONFLICT,
+};

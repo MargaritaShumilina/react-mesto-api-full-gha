@@ -1,0 +1,12 @@
+.header__navigation {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 122%;
+}
+
+.header__navigation:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}

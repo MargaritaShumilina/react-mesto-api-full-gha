@@ -1,0 +1,17 @@
+.profile__status {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0;
+    line-height: 122%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+    .profile__status  {
+        font-size: 18px;
+        text-align: start;
+    }
+}

@@ -1,0 +1,15 @@
+.footer {
+    margin: 0 calc((100% - 282px)/2) 36px calc((100% - 282px)/2);
+}
+
+@media screen and (min-width: 768px) {
+    .footer  {
+        margin: 0 calc((100% - 584px)/2) 36px calc((100% - 584px)/2);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .footer  {
+        margin: 0 calc((100% - 880px)/2) 60px calc((100% - 880px)/2);
+    }
+}

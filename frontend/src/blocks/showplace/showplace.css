@@ -1,0 +1,22 @@
+.showplace {
+    width: 282px;
+    height: 362px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.showplace:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .showplace  {
+        margin-bottom: 0;
+    }
+}
