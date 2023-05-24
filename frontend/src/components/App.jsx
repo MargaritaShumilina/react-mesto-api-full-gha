@@ -45,7 +45,7 @@ function App() {
       getContent(jwt)
         .then((res) => {
           if (res) {
-            console.log(jwt);
+            console.log('2121');
             setLoggedIn(true);
             setUserData(res.email);
             navigate("/", { replace: true });
@@ -83,8 +83,8 @@ function App() {
       .then((res) => {
         if (res) {
           setLoggedIn(true);
+          localStorage.setItem('jwt', res.token);
           setUserData(email);
-          localStorage.setItem("jwt", res.token);
           navigate("/", { replace: true });
         }
       })

@@ -1,6 +1,7 @@
 const allowedCors = [
   'https://margarita.nomoredomains.rocks',
   'http://margarita.nomoredomains.rocks',
+  'http://localhost:3001',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';

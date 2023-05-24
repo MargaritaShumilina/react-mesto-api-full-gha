@@ -16,6 +16,7 @@ const auth = (req, res, next) => {
       token,
       NODE_ENV === 'production' ? SECRET_KEY : 'dev-secret',
     );
+    console.log(token);
   } catch (err) {
     return next(new UNAUTHORIZED('Необходима авторизация'));
   }
