@@ -46,7 +46,6 @@ const createUser = async (req, res, next) => {
     });
 
     res.status(201).send({ newUser });
-  // Спасибо за ваши комментарии :)
   } catch (err) {
     if (err.name === 'ValidationError') {
       next(new BAD_REQUEST('Ошибка данных'));

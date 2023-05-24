@@ -86,7 +86,7 @@ const getMyProfile = (req, res, next) => {
       if (!user) {
         return next(new PAGE_NOT_FOUND('Пользователь не найден'));
       }
-      return res.send({ data: user });
+      return res.send(user);
     })
     .catch((err) => next(err));
 };

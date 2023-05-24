@@ -24,7 +24,8 @@ class Api {
 
   //Информация о пользователе должна подгружаться с сервера
   getUserInformation() {
-    return fetch("https://nomoreparties.co/v1/cohort-58/users/me", {
+    // return fetch("https://nomoreparties.co/v1/cohort-58/users/me", {
+    return fetch(`${this.url}/users/me`, {
       headers: this.headers,
     }).then((res) => this.thenResponseOk(res));
   }
@@ -90,10 +91,12 @@ class Api {
 }
 
 const api = new Api({
-  url: "https://mesto.nomoreparties.co/v1/cohort-58",
+  // url: "https://mesto.nomoreparties.co/v1/cohort-58",
+  url: 'http://localhost:3000',
   headers: {
-    authorization: "cede7662-5863-46cd-adba-d0cd6f4331bc",
-    "Content-Type": "application/json",
+    // authorization: 'cede7662-5863-46cd-adba-d0cd6f4331bc',
+    'Content-Type': 'application/json',
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
 });
 
