@@ -45,7 +45,6 @@ function App() {
       getContent(jwt)
         .then((res) => {
           if (res) {
-            console.log('2121');
             setLoggedIn(true);
             setUserData(res.email);
             navigate("/", { replace: true });
@@ -126,7 +125,7 @@ function App() {
           console.log(error);
         });
     }
-  }, []);
+  }, [loggedIn]);
 
   useEffect(() => {
     if (loggedIn) {
@@ -137,7 +136,7 @@ function App() {
           console.log(error);
         });
     }
-  }, []);
+  }, [loggedIn]);
 
   function handleCardClick(card) {
     setSelectedCard(card);
@@ -180,7 +179,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     const choiceApiMethod = isLiked
       ? api.deleteLike(card._id)
       : api.putLike(card._id);

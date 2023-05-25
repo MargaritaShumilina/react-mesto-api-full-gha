@@ -5,6 +5,7 @@
     object-position: center;
     object-fit: cover;
     background-color: #000;
+    background-size: cover;
 }
 
 .showplace__image:hover {

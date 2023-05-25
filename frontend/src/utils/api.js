@@ -18,24 +18,32 @@ class Api {
   //Начальные карточки должны подгружаться с сервера
   getInitialCards() {
     return fetch(`${this.url}/cards`, {
-      headers: this.headers,
-    }).then((res) => this.thenResponseOk(res));
+      headers: this._getHeaders(),
+    }).then((res) => {
+      return this.thenResponseOk(res);
+    });
+  }
+
+  _getHeaders() {
+    return (this.headers = {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    });
   }
 
   //Информация о пользователе должна подгружаться с сервера
   getUserInformation() {
-    // return fetch("https://nomoreparties.co/v1/cohort-58/users/me", {
     return fetch(`${this.url}/users/me`, {
-      headers: this.headers,
+      headers: this._getHeaders(),
     }).then((res) => {
-      this.thenResponseOk(res)
+      return this.thenResponseOk(res);
     });
   }
 
   //Отредактированные данные профиля должны сохраняться на сервере
   userInformationForSave(name, about) {
     return fetch(`${this.url}/users/me`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: this.headers,
       body: JSON.stringify({
         name: name,
@@ -47,7 +55,7 @@ class Api {
   //добавить на сервер новую карточку
   addNewCardToTemplate(name, link) {
     return fetch(`${this.url}/cards`, {
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       body: JSON.stringify({
         name: name,
@@ -59,7 +67,7 @@ class Api {
   //Карточка должна удаляться, если в попапе удаления карточки пользователь нажал «Да»
   removeMyOwnCard(id) {
     return fetch(`${this.url}/cards/${id}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     }).then((res) => this.thenResponseOk(res));
   }
@@ -67,7 +75,7 @@ class Api {
   //Чтобы лайкнуть карточку, отправьте PUT-запрос
   putLike(id) {
     return fetch(`${this.url}/cards/${id}/likes`, {
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
     }).then((res) => this.thenResponseOk(res));
   }
@@ -75,7 +83,7 @@ class Api {
   //Чтобы убрать лайк, нужно отправить DELETE-запрос с тем же URL
   deleteLike(id) {
     return fetch(`${this.url}/cards/${id}/likes`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     }).then((res) => this.thenResponseOk(res));
   }
@@ -83,7 +91,7 @@ class Api {
   //Смена аватара
   newUserAvatar(avatar) {
     return fetch(`${this.url}/users/me/avatar`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: this.headers,
       body: JSON.stringify({
         avatar: avatar,
@@ -93,11 +101,9 @@ class Api {
 }
 
 const api = new Api({
-  // url: "https://mesto.nomoreparties.co/v1/cohort-58",
-  // url: 'https://api.margarita.nomoredomains.rocks',
-  url: 'http://localhost:3000',
+  url: 'https://api.margarita.nomoredomains.rocks',
+  // url: 'http://localhost:3000',
   headers: {
-    // authorization: 'cede7662-5863-46cd-adba-d0cd6f4331bc',
     'Content-Type': 'application/json',
     authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
