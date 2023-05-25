@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useEffect } from 'react';
 
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
@@ -21,6 +22,8 @@ function Card(props) {
   const cardLikeButtonClassName = `showplace__like ${
     isLiked ? "showplace__like_active" : ""
   }`;
+// Не уверена, что это верное решение, но вроде сработало ) Спасибо вам за ваши комментарии :)
+  useEffect(() => {}, [isOwn]);
 
   return (
     <article className="showplace" key={props.card._id}>

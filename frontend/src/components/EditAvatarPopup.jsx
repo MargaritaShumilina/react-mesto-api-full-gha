@@ -6,8 +6,8 @@ function EditAvatarPopup(props) {
   const currentAvatar = useRef("");
 
   useEffect(() => {
-    currentAvatar.current.value = "";
-  }, [props.isOpen]);
+    currentAvatar.current.value = '';
+  }, [currentAvatar, props.isOpen]);
 
   function handleSubmit(e) {
     e.preventDefault();

@@ -146,7 +146,7 @@ function App() {
     api
       .userInformationForSave(data.name, data.about)
       .then(
-        ({ name, about }) => setCurrentUser({ name, about }),
+        ({ name, about, avatar }) => setCurrentUser({ name, about, avatar }),
         closeAllPopups()
       )
       .catch((e) => console.log(e));
@@ -155,7 +155,10 @@ function App() {
   function handleUpdateAvatar(data) {
     api
       .newUserAvatar(data.avatar)
-      .then(({ avatar }) => setCurrentUser({ avatar }), closeAllPopups())
+      .then(
+        ({ name, about, avatar }) => setCurrentUser({ name, about, avatar }),
+        closeAllPopups()
+      )
       .catch((e) => console.log(e));
   }
 
